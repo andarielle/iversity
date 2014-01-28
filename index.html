@@ -77,14 +77,43 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    </head>
-    <body>
+        <script>
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
 
-        <a href="www.blueforests.blogspot.com">You can see many of my pictures here </a >
-<p>
-<p>
-<p>
-<p>
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+}
+</script>
+    </head>
+    
+    <body>
+<!-- Add your site or application content here -->
+<div>
+<p> This is Homework number 1 and hopefully not the only one, for Iversity "Web Engineering II" course.</p>
+<div>
+<p> Audio embed</p>
+<audio controls> <source src="sound/Porumbescu.mp3" type= "audio/mpg">This is how Romania sounds. For some, though, the browser might not support this audio element.</audio>
+</div>
+<div>
+<p> Drag and Drop </p>
+</div>
+<div>
+           <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" style="border: 1px solid green; width: 260px; height: 142px"></div>
+		   <img id="drag1" src="christmas.jpg" draggable="true" ondragstart="drag(event)" width="260" height="142" style="border: 1px solid blue"/>
+		  </div>
+         </div>
+       
         <script src="js/vendor/zepto.min.js"></script>
         <script src="js/helper.js"></script>
 
@@ -97,7 +126,9 @@
         </script>
     </body>
 </html>
-        <iframe width="640" height="480" src="//www.youtube.com/embed/A314PVRSQIM" frameborder="0" allowfullscreen></iframe>
+        <audio controls> 
+        <source src="sound/porumbescu.mp3" type= "audio/mpg">
+        Your browser does not support the audio element.</audio> 
 
         <script src="js/vendor/zepto.min.js"></script>
         <script src="js/helper.js"></script>
